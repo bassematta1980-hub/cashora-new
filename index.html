@@ -1,1 +1,150 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>CASHORA | AL.BASSEM</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial;background:#f3f5f9;color:#172033}
+.app{display:flex;min-height:100vh}
+.sidebar{width:245px;background:#101827;color:white;padding:22px 15px;flex-shrink:0}
+.logo{font-size:25px;font-weight:bold;color:#e8bd65;margin:8px 12px 5px}
+.brand{font-size:12px;color:#9ca9ba;margin:0 12px 30px}
+.nav{width:100%;border:0;background:transparent;color:#cbd5e1;text-align:right;padding:14px 13px;border-radius:9px;margin:3px 0;font-size:14px;cursor:pointer}
+.nav.active,.nav:hover{background:#26344a;color:#f2c66d}
+.main{flex:1;min-width:0}
+.top{height:70px;background:white;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid #e5e8ef}
+.top strong{font-size:17px}
+.content{padding:25px}
+.welcome{margin-bottom:22px}
+.welcome h2{margin:0 0 8px}
+.muted{color:#8290a3;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;margin-bottom:25px}
+.card{background:white;padding:20px;border-radius:13px;border:1px solid #e8ebf1}
+.card small{color:#8290a3}
+.card h2{margin:13px 0 0;font-size:25px;color:#18263c}
+.panel{background:white;padding:22px;border-radius:13px;border:1px solid #e8ebf1;min-height:180px}
+.panel h3{margin-top:0}
+.page{display:none}
+.page.active{display:block}
+button{font-family:inherit}
+.action{background:#17263c;color:white;border:0;border-radius:8px;padding:11px 17px;cursor:pointer}
+input,select{padding:12px;border:1px solid #dce1e9;border-radius:8px;width:100%;margin:7px 0 14px;font-family:inherit}
+.form{max-width:500px}
+.footer{text-align:center;color:#9aa5b5;font-size:12px;margin-top:30px}
+@media(max-width:650px){
+ .app{display:block}
+ .sidebar{width:100%;padding:12px}
+ .logo{margin:5px 8px}
+ .brand{margin:0 8px 12px}
+ .navs{display:flex;overflow-x:auto;gap:5px}
+ .nav{white-space:nowrap;width:auto;padding:11px}
+ .top{height:58px;padding:0 15px}
+ .content{padding:15px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="logo">CASHORA</div>
+ <div class="brand">AL.BASSEM MANAGEMENT SYSTEM</div>
+ <div class="navs">
+  <button class="nav active" onclick="showPage('home',this)">⌂ لوحة التحكم</button>
+  <button class="nav" onclick="showPage('products',this)">▦ المنتجات والمخزون</button>
+  <button class="nav" onclick="showPage('sales',this)">▣ المبيعات</button>
+  <button class="nav" onclick="showPage('invoices',this)">▤ الفواتير</button>
+  <button class="nav" onclick="showPage('customers',this)">♙ العملاء والديون</button>
+  <button class="nav" onclick="showPage('expenses',this)">⇩ المصروفات</button>
+  <button class="nav" onclick="showPage('reports',this)">▥ التقارير</button>
+  <button class="nav" onclick="showPage('settings',this)">⚙ الإعدادات</button>
+ </div>
+</aside>
+
+<main class="main">
+<header class="top">
+ <strong id="pageTitle">لوحة التحكم</strong>
+ <span class="muted">نظام CASHORA</span>
+</header>
+
+<div class="content">
+<section class="page active" id="home">
+ <div class="welcome">
+  <h2>أهلاً بك في CASHORA</h2>
+  <div class="muted">نظامك لإدارة نشاطك التجاري بسهولة.</div>
+ </div>
+ <div class="cards">
+  <div class="card"><small>إجمالي المبيعات</small><h2>0.00 ج.م</h2></div>
+  <div class="card"><small>عدد المنتجات</small><h2>0</h2></div>
+  <div class="card"><small>العملاء</small><h2>0</h2></div>
+  <div class="card"><small>الديون المستحقة</small><h2>0.00 ج.م</h2></div>
+ </div>
+ <div class="panel">
+  <h3>مرحباً بك في نظام الإدارة</h3>
+  <p class="muted">من القائمة الجانبية تقدر تدخل لكل أقسام البرنامج.</p>
+ </div>
+</section>
+
+<section class="page" id="products">
+ <div class="panel">
+  <h3>المنتجات والمخزون</h3>
+  <p class="muted">إدارة المنتجات والأسعار والكميات والباركود.</p>
+  <div class="form">
+   <label>اسم المنتج</label><input placeholder="اكتب اسم المنتج">
+   <label>السعر</label><input type="number" placeholder="0.00">
+   <label>الكمية</label><input type="number" placeholder="0">
+   <button class="action" onclick="alert('سيتم تفعيل حفظ المنتجات في المرحلة القادمة')">إضافة منتج</button>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="sales">
+ <div class="panel"><h3>المبيعات</h3><p class="muted">شاشة البيع وإصدار فواتير العملاء.</p></div>
+</section>
+
+<section class="page" id="invoices">
+ <div class="panel"><h3>الفواتير</h3><p class="muted">عرض وإدارة وطباعة الفواتير.</p></div>
+</section>
+
+<section class="page" id="customers">
+ <div class="panel"><h3>العملاء والديون</h3><p class="muted">بيانات العملاء والأرصدة والمدفوعات وكشوف الحساب.</p></div>
+</section>
+
+<section class="page" id="expenses">
+ <div class="panel"><h3>المصروفات</h3><p class="muted">تسجيل ومتابعة مصروفات النشاط.</p></div>
+</section>
+
+<section class="page" id="reports">
+ <div class="panel"><h3>التقارير</h3><p class="muted">تقارير المبيعات والأرباح والمخزون والديون.</p></div>
+</section>
+
+<section class="page" id="settings">
+ <div class="panel">
+  <h3>إعدادات CASHORA</h3>
+  <p class="muted">إعدادات البرنامج واللغة والهوية.</p>
+  <label>اسم النشاط التجاري</label>
+  <input placeholder="اسم المحل">
+  <label>لغة البرنامج</label>
+  <select><option>العربية</option><option>English</option></select>
+  <button class="action" onclick="alert('سيتم تفعيل الإعدادات في المرحلة القادمة')">حفظ الإعدادات</button>
+ </div>
+</section>
+<div class="footer">CASHORA © 2026 — Developed by AL.BASSEM</div>
+</div>
+</main>
+</div>
+<script>
+function showPage(id,button){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ button.classList.add('active');
+ document.getElementById('pageTitle').textContent=button.textContent.trim();
+}
+</script>
+</body>
+</html>
+
